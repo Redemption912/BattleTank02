@@ -15,7 +15,16 @@ class BATTLETANK_API ATankPlayerController : public APlayerController
 	GENERATED_BODY()
 	
 public:
+
+	// Called every frame
+	virtual void Tick(float DeltaSeconds) override;
+
 	ATank* GetControlledTank() const;
 	
 	virtual void BeginPlay() override;
+
+
+private:
+	
+	void AimTowardsCrosshair();
 };
