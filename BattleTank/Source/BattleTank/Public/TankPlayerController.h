@@ -23,7 +23,6 @@ public:
 	
 	virtual void BeginPlay() override;
 
-
 private:
 	
 	void AimTowardsCrosshair();
@@ -35,5 +34,13 @@ private:
 	float CrosshairXLocation = 0.5;
 
 	UPROPERTY(EditAnywhere)
-	float CrosshairYLocation = 0.3333;
+	float CrosshairYLocation = 0.33333;
+
+	UPROPERTY(EditAnywhere)
+	float LineTraceRange = 1000000; // << unit numbers in Unreal are in Centimeters 10km = 1,000,000cm
+
+	bool GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const;
+	bool GetLookVectorHitLocation(FVector LookDirection, FVector& HitLocation) const;
+
+
 };

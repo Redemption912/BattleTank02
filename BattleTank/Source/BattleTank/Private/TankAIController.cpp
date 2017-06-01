@@ -3,6 +3,8 @@
 #include "BattleTank.h"
 #include "TankAIController.h"
 
+
+// Called when game starts or spawned
 void ATankAIController::BeginPlay()
 {
 	Super::BeginPlay();
@@ -10,7 +12,7 @@ void ATankAIController::BeginPlay()
 	auto PlayerTank = GetPlayerTank();
 	if (!PlayerTank)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("TankAIController can't find player tank"));
+		UE_LOG(LogTemp, Warning, TEXT("TankAIController cannot find player tank"));
 	}
 	else
 	{
@@ -21,6 +23,21 @@ void ATankAIController::BeginPlay()
 ATank* ATankAIController::GetControlledTank() const
 {
 	return Cast<ATank>(GetPawn());
+}
+
+// Calls every frame
+void ATankAIController::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	if (GetPlayerTank())
+	{
+		// TODO Move towards player
+
+		// Aim towards player
+		GetControlledTank()->AimAt(GetPlayerTank()->GetActorLocation());
+
+		// Fire at the player when ready
+	}
 }
 
 ATank* ATankAIController::GetPlayerTank() const
