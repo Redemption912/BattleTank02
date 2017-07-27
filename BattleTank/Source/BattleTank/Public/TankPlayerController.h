@@ -37,7 +37,7 @@ private:
 	float CrosshairXLocation = 0.5;
 
 	UPROPERTY(EditAnywhere)
-	float CrosshairYLocation = 0.33333;
+	float CrosshairYLocation = 0.5;
 
 	UPROPERTY(EditAnywhere)
 	float LineTraceRange = 1000000; // << unit numbers in Unreal are in Centimeters 10km = 1,000,000cm

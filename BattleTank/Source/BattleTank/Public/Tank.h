@@ -7,7 +7,6 @@
 
 // Forward declarations
 class UTankBarrel;
-class UTankTurret;
 class UTankAmingComponent;
 class AProjectile;
 
@@ -41,14 +40,17 @@ private:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
 
-	UPROPERTY(EditAnywhere, Category = Firing)
-	float LaunchSpeed = 100000; // TODO find sensible default
+	UPROPERTY(EditDefaultsOnly, Category = Firing)
+	float LaunchSpeed = 15000; // TODO find sensible default
 
-	UPROPERTY(EditAnywhere, Category = Setup)
+	UPROPERTY(EditDefaultsOnly, Category = Firing)
+	float ReloadTimeInSeconds = 2;
+
+	UPROPERTY(EditDefaultsOnly, Category = Setup)
 	TSubclassOf<AProjectile> ProjectileBlueprint;
 	
-	UPROPERTY(EditAnywhere, Category = Health)
-	float Health = 100;
+	
+	double LastFireTime = 0;
 	
 	// Local barrel reference
 	UTankBarrel* Barrel = nullptr;
