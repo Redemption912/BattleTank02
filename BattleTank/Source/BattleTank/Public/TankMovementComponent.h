@@ -28,6 +28,8 @@ public:
 	UFUNCTION(BlueprintCallable, Category = Input)
 	void RotateClockwise(float Axis);
 
+	virtual void RequestDirectMove(const FVector& MoveVelocity, bool bForceMaxSpeed) override;
+
 private:
 	UTankTrack* LeftTrack = nullptr;
 	UTankTrack* RightTrack = nullptr;
