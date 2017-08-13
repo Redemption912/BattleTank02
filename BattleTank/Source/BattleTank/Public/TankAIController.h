@@ -25,5 +25,5 @@ private:
 	ATank* GetControlledTank() const;
 
 	// How close to get to the player before stopping
-	float AcceptanceRadius = 4000.0f;
+	float AcceptanceRadius = 3000.0f;
 };
