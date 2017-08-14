@@ -6,7 +6,6 @@
 #include "TankAIController.generated.h" // Must be last?
 
 // Forward Declarations
-class ATank;
 
 /**
  * 
@@ -22,8 +21,6 @@ private:
 	
 	virtual void BeginPlay() override;
 
-	ATank* GetControlledTank() const;
-
 	// How close to get to the player before stopping
-	float AcceptanceRadius = 3000.0f;
+	float AcceptanceRadius = 5000.0f;
 };

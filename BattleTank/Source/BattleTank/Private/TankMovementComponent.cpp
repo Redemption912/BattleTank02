@@ -6,7 +6,7 @@
 
 void UTankMovementComponent::Initialize(UTankTrack* LeftTrackToSet, UTankTrack* RightTrackToSet)
 {
-	if (!LeftTrackToSet || !RightTrackToSet) { return; }
+	if (!ensure(LeftTrackToSet && RightTrackToSet)) { return; }
 	LeftTrack = LeftTrackToSet;
 	RightTrack = RightTrackToSet;
 }
@@ -25,21 +25,21 @@ void UTankMovementComponent::RequestDirectMove(const FVector& MoveVelocity, bool
 
 void UTankMovementComponent::MoveForward(float Axis)
 {
-	if (!LeftTrack || !RightTrack) { return; }
+	if (!ensure(LeftTrack && RightTrack)) { return; }
 	LeftTrack->SetThrottle(Axis);
 	RightTrack->SetThrottle(Axis);
 }
 
 void UTankMovementComponent::MoveBackward(float Axis)
 {
-	if (!LeftTrack || !RightTrack) { return; }
+	if (!ensure(LeftTrack && RightTrack)) { return; }
 	LeftTrack->SetThrottle(Axis);
 	RightTrack->SetThrottle(Axis);
 }
 
 void UTankMovementComponent::RotateClockwise(float Axis)
 {
-	if (!LeftTrack || !RightTrack) { return; }
+	if (!ensure(LeftTrack && RightTrack)) { return; }
 	LeftTrack->SetThrottle(Axis);
 	RightTrack->SetThrottle(-Axis);
 }
